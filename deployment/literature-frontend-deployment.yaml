@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: literature-frontend-deployment
+  namespace: literature
+spec:
+  selector:
+    matchLabels:
+      app: literature-frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: literature-frontend
+    spec:
+      containers:
+      - name: literature-frontend
+        image: anjardanis/literature-frontend
+        ports:
+        - containerPort: 5000
